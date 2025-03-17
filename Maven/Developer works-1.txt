@@ -1,0 +1,18 @@
+Developer day to day activities:
+
+1. Write a code using IDE
+2. Compile the code locally
+3. Test it
+4. Create a packge 
+5. Deploy it in local application server
+6. PUSH the working code to SOURCE CODE MANAGEMENT (GIT,bitbucket)
+
+How maven use for DEVOPS Engineer?
+
+Maven take the code from  github (SCM) & build the code with all dependices needed automatically, With out any manual intervention
+
+What is pom.xml? 
+
+https://maven.apache.org/guides/introduction/introduction-to-the-pom.html#:~:text=Available%20Variables-,What%20is%20a%20POM%3F,default%20values%20for%20most%20projects.
+
+

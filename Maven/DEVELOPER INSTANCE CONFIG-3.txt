@@ -1,0 +1,77 @@
+1. Install java
+-----------------
+https://www.oracle.com/in/java/technologies/downloads/#jdk19-windows
+
+To make java working commonly
+
+Goto-->This PC-->right click-->properties-->advanced system settings
+
+Add the new env var --> click new -> JAVA_HOME as C:\Program Files\Java\jdk-19\bin
+
+Environment Variables-->Edit the path-->copy the java installation dir still bin and create new path - C:\Program Files\Java\jdk-19\bin
+
+Check the java -version in command line
+javac -version
+javac
+*********************************************************************************************************
+2. Install eclipse
+------------------
+https://www.eclipse.org/downloads/
+After install do the basic configurations
+
+*********************************************************************************************************
+3. Create 1st Maven Project using eclipse tool
+
+What is archtype?
+
+Go to projects --> create new project --> choose Maven project --> choose the archtype as mavenarchtype-quickstart (maven-archetype-qu)
+
+--------------------------------------------------------------------------------------------
+
+Maven Coordinates 
+   - what is Maven Coordinates? 
+
+Maven coordinates identify uniquely a project, a dependency, or a plugin defined in POM. Each entity is uniquely identified by the combination of a group identifier, an artifact identifier, and the version (and, of course, with the packaging and the classifier).
+
+Config this for our first project
+
+Groupid - com.mavenproj
+Artifactid - sampleproj
+version - default - without snapshot means is a prod ready
+
+<maven repo for spring boot> and find how they are using 
+
+https://mvnrepository.com/artifact/org.springframework.boot
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

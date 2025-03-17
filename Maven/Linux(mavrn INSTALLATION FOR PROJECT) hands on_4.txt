@@ -1,0 +1,169 @@
+We going to setup the BUILD linux EC2 with Maven:
+------------------------------------------------------------
+1. Create an EC2 instance (Any AMI) we have choosed amazon linux
+
+Become as a root user:
+sudo su - 
+
+2.  JAVA installation and setup
+
+i.  We need JAVA installaed on our EC2 instance
+
+#yum update -y 
+#yum install java-1.8* -y
+
+ii. We need to set the java path as variable, run the below commands to see the jaav installed paths
+
+#whereis java
+#find /usr/lib/jvm/java-1.8* |head -n 3
+
+update the java path in this profile file
+#cp .bash_profile .bash_profile_bak
+
+#vi ~/.bash_profile
+
+JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64
+
+PATH=$PATH:$HOME/bin:$JAVA_HOME
+
+To check the java home path updated
+#echo $PATH
+#source ~/.bash_profile - then run the above command now java path will be updated
+#echo $PATH
+
+**********************************************************************************************************
+3. MAVEN installation
+
+We can download the packages from - https://maven.apache.org/download.cgi
+
+cd /opt
+
+wget https://dlcdn.apache.org/maven/maven-3/3.8.8/binaries/apache-maven-3.8.8-bin.tar.gz
+
+tar -xvzf apache-maven-3.8.8-bin.tar.gz
+
+apache-maven-3.8.8/
+
+Again edit the bash_profile file and add our maaven path
+
+vi ~/.bash_profile
+
+M2_HOME=/opt/apache-maven-3.8.8
+M2=/opt/apache-maven-3.8.8/bin
+
+PATH=$PATH:$HOME/bin:$JAVA_HOME:$M2:$M2_HOME
+
+
+
+
+To check the maven version
+
+mvn --version 
+
+************************************************************************************************************************************************
+
+3. Build Maven project on linux:
+
+i. We need git on our EC2 instance - yum install git
+ii. git clone our repo - copy the repo from github
+
+EX:
+  git clone https://github.com/cloudgopalamugunthan/samplecode.git
+
+#cd - to the soucecode repo
+
+Run the mavaen goals - (https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#Lifecycle_Reference)
+
+#mvn validate 
+#mvn compile - now the target directory will get created
+# ls -ltr
+#cd target/classes/com/mavenproject/sampleproj
+#ls -ltr
+#cd ..
+
+path copy:
+/root/julyqqq/target/classes/com/mavenproj/sampleproj
+#mvn test-compile - Test case classes also now created
+
+
+
+#mvn test
+#mvn package - now the app created as a (ex: Building jar: /root/samplecode/target/sampleproject1-0.0.1-SNAPSHOT.jar)
+#ls -ltr
+# cd /root/.m2 - local repo to see the strcu
+#cd repository/
+# pwd
+
+# mvn install
+
+Check the default installation will be happaned under local .m2
+
+#/root/.m2/repository/com/sampleproj/sampleproject1
+
+Common maven Goals
+--------------------------
+#maven clean install - usually build team do this goal
+******************************************************************************************************
+
+1. Create maven project using archtype linux - (https://maven.apache.org/archetypes/maven-archetype-webapp/)
+
+mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-webapp -DarchetypeVersion=1.4
+ #cd mavenwebapp
+#  vi pom.xml
+# vi /root/.m2/settings.xml
+ # pwd
+ # ls -ltr
+ #mvn tomcat7:deploy
+
+
+new project will get creates, it will use more plugins. defualt packaging is war
+
+********************************************************************************************
+
+2. Settings.xml  (https://maven.apache.org/settings.html) - create this under /root/.m2
+
+https://gist.githubusercontent.com/cyrille-leclerc/9d57f730d60c25eb4c0abc2de42036b5/raw/2b4e012998e0d3db25d20b166692d380f2b321e0/maven-settings.xml
+
+3. Tomcat deployment
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
